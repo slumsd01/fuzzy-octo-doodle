@@ -136,13 +136,13 @@
                     <p>Add a new pet</p>
                     <form>
                         <div class="mb-3">
-                        <label for="input-pet-name" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="input-pet-name">
+                            <label for="input-pet-name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="input-pet-name">
                         </div>
 
                         <div class="mb-3">
-                        <label for="input-pet-age" class="form-label">Age:</label>
-                        <input type="text" class="form-control" id="input-pet-age">
+                            <label for="input-pet-age" class="form-label">Age:</label>
+                            <input type="text" class="form-control" id="input-pet-age">
                         </div>
 
                         <div class="mb-3">
@@ -152,6 +152,14 @@
                                 <option value="MN">Male Neutered</option>
                                 <option value="F">Female</option>
                                 <option value="FS">Female Spayed</option>
+                            </select>    
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" aria-label="pet-sex-input">
+                                <option selected>Type:</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
                             </select>    
                         </div>
                         <button type="submit" class="btn btn-primary">Add Pet</button>
