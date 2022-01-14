@@ -1,5 +1,4 @@
-const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { Pet } = require('../models');
 
 const petData = [
   {
@@ -7,52 +6,52 @@ const petData = [
     pet_age: 3,
     pet_sex: 'male',
     pet_type: 'dog',
-    medical_req: NULL
+    user_id: 1
   },
   {
     pet_name: 'Onyx',
     pet_age: 9,
     pet_sex: 'male',
     pet_type: 'cat',
-    medical_req: 'diabetic, requires insulin shots based on a sliding scale when fed'
+    user_id: 2
   },
   {
     pet_name: 'Jeffrey',
     pet_age: 1,
     pet_sex: 'female',
     pet_type: 'lizard/snake',
-    medical_req: NULL
+    user_id: 3
   },
   {
     pet_name: 'Polly',
     pet_age: 2,
     pet_sex: 'female',
     pet_type: 'bird',
-    medical_req: "anxiety - only when she doesn't promptly get a cracker upon request"
+    user_id: 4
   },
   {
     pet_name: 'Clive',
     pet_age: 1,
     pet_sex: 'male',
     pet_type: 'rodent',
-    medical_req: NULL
+    user_id: 5
   },
   {
     pet_name: 'Clyde',
     pet_age: 2,
     pet_sex: 'male',
     pet_type: 'fish',
-    medical_req: 'fresh water and prompt feedings'
+    user_id: 6
   },
   {
     pet_name: 'Bonnie',
     pet_age: 1,
     pet_sex: 'female',
     pet_type: 'plant',
-    medical_req: 'requires a lot of sunlight, water, love, and affection'
+    user_id: 7
   }
 ];
 
-const seedPets = () => Pet.bulkCreate(petData, {individualHooks: true});
+const seedPets = () => Pet.bulkCreate(petData);
 
 module.exports = seedPets;
