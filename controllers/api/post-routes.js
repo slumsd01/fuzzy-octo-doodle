@@ -5,7 +5,6 @@ const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('======================');
   Post.findAll({
     attributes: [
       'id',
@@ -35,6 +34,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// get a post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -64,7 +64,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbPostData => {
     if (!dbPostData) {
-      res.status(404).json({ message: 'No post found with this id' });
+      res.status(404).json({ message: 'No Post found with this id' });
       return;
     }
     res.json(dbPostData);
@@ -75,6 +75,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// create new post
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
@@ -89,16 +90,7 @@ router.post('/', withAuth, (req, res) => {
   });
 });
 
-router.put('/upvote', withAuth, (req, res) => {
-  // custom static method created in models/Post.js
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-  .then(updatedVoteData => res.json(updatedVoteData))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
-
+// update post
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
@@ -112,7 +104,7 @@ router.put('/:id', withAuth, (req, res) => {
   )
   .then(dbPostData => {
     if (!dbPostData) {
-      res.status(404).json({ message: 'No post found with this id' });
+      res.status(404).json({ message: 'No Post found with this id' });
       return;
     }
     res.json(dbPostData);
@@ -123,8 +115,8 @@ router.put('/:id', withAuth, (req, res) => {
   });
 });
 
+// delete a post
 router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
   Post.destroy({
     where: {
       id: req.params.id
@@ -132,7 +124,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
   .then(dbPostData => {
     if (!dbPostData) {
-      res.status(404).json({ message: 'No post found with this id' });
+      res.status(404).json({ message: 'No Post found with this id' });
       return;
     }
     res.json(dbPostData);

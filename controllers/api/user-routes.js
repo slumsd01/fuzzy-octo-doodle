@@ -6,8 +6,10 @@ const { User, Post, Comment, Pet } = require('../../models');
 router.get('/', (req, res) => {
   User.findAll({
     attributes: [
+      'id',
       'username',
       'email',
+      'user_type',
       [sequelize.literal('(SELECT COUNT(*) FROM pet WHERE user.id = pet.user_id)'), 'pet_count']
     ]
   })
@@ -18,6 +20,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// get a user
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -38,16 +41,15 @@ router.get('/:id', (req, res) => {
         }
       },
       {
-        model: Post,
-        attributes: ['title'],
-        through: Vote,
-        as: 'voted_posts'
+        model: Pet,
+        attributes: ['id', 'pet_name', 'pet_age', 'pet_sex', 'pet_type'],
+        as: 'pets'
       }
     ]
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No user found with this id' });
+      res.status(404).json({ message: 'No User found with this id' });
       return;
     }
     res.json(dbUserData);
@@ -58,6 +60,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// create new user
 router.post('/', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
@@ -80,6 +83,7 @@ router.post('/', (req, res) => {
   });
 });
 
+// authenticate user login
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
@@ -88,7 +92,7 @@ router.post('/login', (req, res) => {
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'No User with that email address!' });
       return;
     }
 
@@ -98,7 +102,6 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
@@ -109,6 +112,7 @@ router.post('/login', (req, res) => {
   });
 });
 
+// allow user to logout and end their session
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -120,6 +124,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// update a user
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
@@ -132,7 +137,7 @@ router.put('/:id', (req, res) => {
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No user found with this id' });
+      res.status(404).json({ message: 'No User found with this id' });
       return;
     }
     res.json(dbUserData);
@@ -143,6 +148,7 @@ router.put('/:id', (req, res) => {
   });
 });
 
+// delete a user
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
@@ -151,7 +157,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No user found with this id' });
+      res.status(404).json({ message: 'No User found with this id' });
       return;
     }
     res.json(dbUserData);
