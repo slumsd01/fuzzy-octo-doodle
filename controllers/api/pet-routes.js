@@ -50,14 +50,14 @@ router.get('/:id', (req, res) => {
 });
 
 // create new pet
-router.post('/', (req, res) => {
-  // expects {pet_name: 'Gus', pet_age: 6, pet_sex: 'male', pet_type: 'dog', user_id: 11}
+router.post('/', withAuth, (req, res) => {
+  // expects {pet_name: 'Gus', pet_age: 6, pet_sex: 'male', pet_type: 'dog', user_id: 9}
   Pet.create({
     pet_name: req.body.pet_name,
     pet_age: req.body.pet_age,
     pet_sex: req.body.pet_sex,
     pet_type: req.body.pet_type,
-    // user_id: req.session.user.id
+    user_id: req.session.user.id
   })
   .then(dbPetData => res.json(dbPetData))
   .catch(err => {
@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
 });
 
 // update a pet
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Pet.update(
     {
       pet_name: req.body.pet_name,
@@ -93,7 +93,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete a pet
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Pet.destroy({
     where: {
       id: req.params.id

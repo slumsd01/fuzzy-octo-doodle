@@ -63,7 +63,7 @@ const userdata = [
     user_type: 'sitter'
   },
   {
-    username: 'spaghettmedic',
+    username: 'spaghettimedic',
     email: 'example@gmail.com',
     password: 'password123',
     user_type: 'owner'

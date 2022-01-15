@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_body',
       'title',
+      'post_body',
       'created_at'
     ],
     include: [
@@ -42,10 +42,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_body',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'post_body',
+      'created_at'
     ],
     include: [
       {
