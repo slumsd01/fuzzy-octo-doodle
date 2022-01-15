@@ -23,11 +23,11 @@ Pet.init(
       }
     },
     pet_sex: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // options are 'male' or 'female' from dropdown menu
       allowNull: false,
     },
     pet_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // options are 'dog', 'cat', 'bird', 'lizard/snake', 'rodent', 'fish' from dropdown menu
       allowNull: false
     },
     user_id: {

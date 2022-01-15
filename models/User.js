@@ -37,6 +37,10 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    user_type: {
+      type: DataTypes.STRING, // options are either 'owner' or 'sitter' from dropdown menu
+      allowNull: false
     }
   },
   {

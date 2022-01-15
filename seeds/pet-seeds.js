@@ -49,6 +49,13 @@ const petData = [
     pet_sex: 'female',
     pet_type: 'plant',
     user_id: 7
+  },
+  {
+    pet_name: 'Jake from StateFarm',
+    pet_age: 29,
+    pet_sex: 'male',
+    pet_type: 'insurance representative',
+    user_id: 7
   }
 ];
 
