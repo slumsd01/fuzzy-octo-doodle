@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User, Post, Comment, Pet } = require('../../models');
+const { User, Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all pets
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbPetData => {
     if (!dbPetData) {
-      ures.status(404).json({ message: 'No Pet found with this id' });
+      res.status(404).json({ message: 'No Pet found with this id' });
       return;
     }
     res.json(dbPetData);
@@ -50,13 +50,14 @@ router.get('/:id', (req, res) => {
 });
 
 // create new pet
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   // expects {pet_name: 'Gus', pet_age: 6, pet_sex: 'male', pet_type: 'dog', user_id: 11}
   Pet.create({
     pet_name: req.body.pet_name,
     pet_age: req.body.pet_age,
     pet_sex: req.body.pet_sex,
-    pet_type: req.body.pet_type
+    pet_type: req.body.pet_type,
+    // user_id: req.session.user.id
   })
   .then(dbPetData => res.json(dbPetData))
   .catch(err => {
@@ -66,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // update a pet
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
   Pet.update(
     {
       pet_name: req.body.pet_name,
@@ -92,7 +93,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // delete a pet
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
   Pet.destroy({
     where: {
       id: req.params.id
