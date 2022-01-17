@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// get all Posts
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -16,6 +16,10 @@ router.get('/', (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Pet,
+        attributes: ['pet_name', 'pet_age', 'pet_sex', 'pet_type']
       },
       {
         model: Comment,
@@ -34,7 +38,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// get a post
+// get a Post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -44,9 +48,17 @@ router.get('/:id', (req, res) => {
       'id',
       'title',
       'post_body',
-      'created_at'
+      'created_at',
     ],
     include: [
+      {
+        model: User,
+        attributes: ['username']
+      },
+      {
+        model: Pet,
+        attributes: ['pet_name', 'pet_age', 'pet_sex', 'pet_type']
+      },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -54,10 +66,6 @@ router.get('/:id', (req, res) => {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })
@@ -74,12 +82,13 @@ router.get('/:id', (req, res) => {
   });
 });
 
-// create new post
+// create new Post
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_body: 'https://taskmaster.com/press', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', post_body: 'https://taskmaster.com/press', pet_id: 2, user_id: 1}
   Post.create({
     title: req.body.title,
     post_body: req.body.post_body,
+    pet_id: req.body.pet_id,
     user_id: req.session.user_id
   })
   .then(dbPostData => res.json(dbPostData))
@@ -89,11 +98,13 @@ router.post('/', withAuth, (req, res) => {
   });
 });
 
-// update post
+// update Post
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_body: req.body.post_body,
+      pet_id: req.body.pet_id
     },
     {
       where: {
@@ -114,7 +125,7 @@ router.put('/:id', withAuth, (req, res) => {
   });
 });
 
-// delete a post
+// delete a Post
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
