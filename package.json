@@ -18,6 +18,7 @@
   "homepage": "https://github.com/slumsd01/fuzzy-octo-doodle#readme",
   "dependencies": {
     "cloudinary": "^1.28.1",
-    "dotenv": "^11.0.0"
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2"
   }
 }
