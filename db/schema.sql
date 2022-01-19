@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS sit_stay_db;
+
+CREATE DATABASE sit_stay_db;
