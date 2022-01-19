@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/slumsd01/fuzzy-octo-doodle#readme",
   "dependencies": {
-    "cloudinary": "^1.28.1",
-    "dotenv": "^11.0.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.13.0"
   }
 }
