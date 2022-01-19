@@ -1,72 +1,78 @@
-<div class="row">    
-    <!-- about section -->
-    <section id="about" class="col-12 col-lg-6">
-        <div class="row justify-content-around">
-            <div class="col-4">
-                <img src="/images/profile-icon.png">
-                <p>Create a profile</p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sit + Stay</title>
+</head>
+<body>
+    <div class="row">    
+        <!-- about section -->
+        <section id="about" class="col-12 col-lg-6">
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <img src="/images/profile-icon.png">
+                    <p>Create a profile</p>
+                </div>
 
-            <div class="col-4">
-                <img src="/images/pawprint-icon.png">
-                <p>Add your pets</p>
-            </div>
+                <div class="col-4">
+                    <img src="/images/pawprint-icon.png">
+                    <p>Add your pets</p>
+                </div>
 
-            <div class="col-4">
-                <img src="/images/calendar-icon.png">
-                <p>Find a sitter</p>
+                <div class="col-4">
+                    <img src="/images/calendar-icon.png">
+                    <p>Find a sitter</p>
+                </div>
+                <div class="col-12">
+                    <img src="/images/magnifying-glass-icon.png">
+                    <p>Or register as a sitter<br>to find pets to care for</p>
+                </div>
             </div>
-            <div class="col-12">
-                <img src="/images/magnifying-glass-icon.png">
-                <p>Or register as a sitter<br>to find pets to care for</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- login & registration section -->
-    <section id="login" class="col-12 col-md-6 col-lg-3">
-        <p>Login</p>
-        <form>
-            <div class="mb-3">
-                <label for="input-email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="input-email">
-            </div>
-            <div class="mb-3">
-                <label for="input-password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="input-password">
-            </div>            
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </section>
+        <!-- login & registration section -->
+        <section id="login" class="col-12 col-md-6 col-lg-3">
+            <p>Login</p>
+            <form>
+                <div class="mb-3">
+                    <label for="input-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="input-email">
+                </div>
+                <div class="mb-3">
+                    <label for="input-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="input-password">
+                </div>            
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
 
-    <section id="register" class="col-12 col-md-6 col-lg-3">
-        <p>Register</p>
-        <form>
-            <div class="mb-3">
-                <label for="input-usernam" class="form-label">Username</label>
-                <input type="text" class="form-control" id="input-username">
-            </div>
-            <div class="mb-3">
-                <label for="input-email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="input-email">
-            </div>
-            <div class="mb-3">
-                <label for="input-password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="input-password">
-            </div>            
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="pet-owner">
-                <label class="form-check-label" for="pet-owner">
-                    I am a pet owner
-                </label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="pet-sitter">
-                <label class="form-check-label" for="pet-sitter">
-                    I am a pet sitter
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </section>
-</div>
+        <section id="register" class="col-12 col-md-6 col-lg-3">
+            <p>Register</p>
+            <form>
+                <div class="mb-3">
+                    <label for="username-signup" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username-signup">
+                </div>
+                <div class="mb-3">
+                    <label for="email-signup" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email-signup">
+                </div>
+                <div class="mb-3">
+                    <label for="password-signup" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password-signup">
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" value="owner" id="pet-owner">
+                    <label class="form-check-label" for="pet-owner">I am a pet owner</label>
+                    <input class="form-check-input" type="radio" value="sitter" id="pet-sitter">
+                    <label class="form-check-label" for="pet-sitter">I am a pet sitter</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </div>
+    <script src="/javascript/login.js"></script>
+</body>
+</html>

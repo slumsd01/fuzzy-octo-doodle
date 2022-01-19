@@ -35,7 +35,7 @@
                 <label for="input-password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="input-password">
             </div>            
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="login-form">Submit</button>
         </form>
     </section>
 
@@ -43,30 +43,26 @@
         <p>Register</p>
         <form>
             <div class="mb-3">
-                <label for="input-usernam" class="form-label">Username</label>
-                <input type="text" class="form-control" id="input-username">
+                <label for="username-signup" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username-signup">
             </div>
             <div class="mb-3">
-                <label for="input-email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="input-email">
+                <label for="email-signup" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email-signup">
             </div>
             <div class="mb-3">
-                <label for="input-password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="input-password">
+                <label for="password-signup" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password-signup">
             </div>            
             <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="pet-owner">
-                <label class="form-check-label" for="pet-owner">
-                    I am a pet owner
-                </label>
+                <input class="form-check-input" type="radio" value="owner" id="pet-owner" name="usertype-signup">
+                <label class="form-check-label" for="pet-owner">I am a pet owner</label>
+                <br>
+                <input class="form-check-input" type="radio" value="sitter" id="pet-sitter" name="usertype-signup">
+                <label class="form-check-label" for="pet-sitter">I am a pet sitter</label>
             </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="pet-sitter">
-                <label class="form-check-label" for="pet-sitter">
-                    I am a pet sitter
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="signup-form">Submit</button>
         </form>
     </section>
 </div>
+<script src="/javascript/login.js"></script>

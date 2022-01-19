@@ -39,7 +39,7 @@ User.init(
       }
     },
     user_type: {
-      type: DataTypes.STRING, // options are either 'owner' or 'sitter' from dropdown menu
+      type: DataTypes.STRING, // options are either 'owner' or 'sitter' from radio inputs
       allowNull: false
     }
   },

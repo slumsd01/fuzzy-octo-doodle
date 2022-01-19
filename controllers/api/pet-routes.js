@@ -50,16 +50,18 @@ router.get('/:id', (req, res) => {
 });
 
 // create new pet
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   // expects {pet_name: 'Gus', pet_age: 6, pet_sex: 'male', pet_type: 'dog', user_id: 9}
   Pet.create({
     pet_name: req.body.pet_name,
     pet_age: req.body.pet_age,
     pet_sex: req.body.pet_sex,
     pet_type: req.body.pet_type,
-    user_id: req.session.user.id
+    // user_id: req.session.user.id
   })
-  .then(dbPetData => res.json(dbPetData))
+  .then(dbPetData => {
+    res.json(dbPetData);
+  })
   .catch(err => {
     console.log(err);
     res.status(500).json(err);

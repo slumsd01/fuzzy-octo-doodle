@@ -1,4 +1,5 @@
 const express = require('express');
+const cloudinary = require('cloudinary').v2;
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
@@ -28,6 +29,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// configure cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
+});
+
 // turn on routes
 app.use(routes);
 
@@ -39,3 +47,5 @@ app.set('view engine', 'handlebars');
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+module.exports = cloudinary;

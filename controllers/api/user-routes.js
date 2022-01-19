@@ -62,11 +62,12 @@ router.get('/:id', (req, res) => {
 
 // create new user
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', user_type: 'owner'}
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    user_type: req.body.user_type
   })
   .then(dbUserData => {
     req.session.save(() => {
