@@ -36,6 +36,7 @@ header {
     text-transform: uppercase;
 }
 
+/* nav bar */
 nav {
     text-align: right;
     background-color: var(--green);
@@ -47,6 +48,102 @@ nav a {
     margin: 15px;
 }
 
+/* logout button */
+.btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+    transition: color .1s;
+    margin-left: 16px;
+    text-transform: none;
+}
+
+.btn-no-style:hover {
+    background: none;
+    color: #3486eb;
+    text-decoration: underline;
+}
+
+/* posts */
+.post-list {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #225ca3;
+    font-weight: bold;
+    transition: color .1s;
+}
+
+a:hover {
+    color: #3486eb;
+}
+
+/* login page */
+section {
+    margin: 25px 0;
+}
+
+#about {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: bold;
+}
+
+#about img {
+    height: 100px;
+}
+
+#forms {
+    display: flex;
+    
+}
+
+.login-form, .signup-form {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.login-form h3, .signup-form h3 {
+    text-transform: uppercase;
+    background-color: var(--green);
+    color: white;
+    padding: 5px;
+}
+
+#radio p {
+    margin-bottom: 8px;
+}
+
+#radio label {
+    display: inline;
+}
+
+button {
+    background-color: #225ca3;
+    border: 0;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+button:hover {
+    background-color: #3486eb;
+}
+
+/* footer */
 footer {
     background-color: black;
     display: flex;
@@ -61,37 +158,6 @@ footer a {
 /* ========================================== */
  
 /* tech news */
-a {
-    text-decoration: none;
-    color: #225ca3;
-    font-weight: bold;
-    transition: color .1s;
-}
-
-a:hover {
-    color: #3486eb;
-}
-
-button {
-    background-color: #225ca3;
-    border: 0;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #3486eb;
-}
-
-.post-list {
-    margin: 0;
-    padding: 0;
-}
-
 textarea, input {
     padding: .5%;
     border-radius: 5px;
@@ -128,24 +194,6 @@ form label {
 main {
     flex: 1;
     padding: 2% 4%;
-}
-
-.btn-no-style {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-    margin-left: 16px;
-}
-
-.btn-no-style:hover {
-    background: none;
-    color: #3486eb;
 }
 
 .delete-post-btn {
