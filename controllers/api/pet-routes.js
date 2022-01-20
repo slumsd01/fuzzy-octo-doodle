@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
       'pet_sex',
       'pet_type',
       'user_id',
+      [sequelize.literal('(SELECT username FROM user WHERE pet.user_id = user.id)'), 'owner']
     ]
   })
   .then(dbPetData => res.json(dbPetData))
