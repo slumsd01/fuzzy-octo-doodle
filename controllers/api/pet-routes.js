@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbPetData => {
     if (!dbPetData) {
-      res.status(404).json({ message: 'No Pet found with this id' });
+      res.status(404).json({ message: 'No pet found with this id' });
       return;
     }
     res.json(dbPetData);
@@ -81,7 +81,7 @@ router.put('/:id', withAuth, (req, res) => {
   )
   .then(dbPetData => {
     if (!dbPetData) {
-      res.status(404).json({ message: 'No Pet found with this id' });
+      res.status(404).json({ message: 'No pet found with this id' });
       return;
     }
     res.json(dbPetData);
@@ -101,7 +101,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
   .then(dbPetData => {
     if (!dbPetData) {
-      res.status(404).json({ message: 'No Pet found with this id' });
+      res.status(404).json({ message: 'No pet found with this id' });
       return;
     }
     res.json(dbPetData);

@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_body', 'created_at']
       },
       {
         model: Comment,
@@ -49,7 +49,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No User found with this id' });
+      res.status(404).json({ message: 'No user found with this id' });
       return;
     }
     res.json(dbUserData);
@@ -62,11 +62,12 @@ router.get('/:id', (req, res) => {
 
 // create new user
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', user_type: 'owner'}
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    user_type: req.body.user_type
   })
   .then(dbUserData => {
     req.session.save(() => {
@@ -92,7 +93,7 @@ router.post('/login', (req, res) => {
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No User with that email address!' });
+      res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
 
@@ -137,7 +138,7 @@ router.put('/:id', (req, res) => {
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No User found with this id' });
+      res.status(404).json({ message: 'No user found with this id' });
       return;
     }
     res.json(dbUserData);
@@ -157,7 +158,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No User found with this id' });
+      res.status(404).json({ message: 'No user found with this id' });
       return;
     }
     res.json(dbUserData);

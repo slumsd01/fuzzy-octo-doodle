@@ -28,14 +28,25 @@ async function signupFormHandler(event) {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+  
+  const radioButtons = document.querySelectorAll('input[name="user_type"]')
 
-  if (username && email && password) {
+  let user_type;
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      user_type = radioButton.value;
+      break;
+    }
+  }
+
+  if (username && email && password && user_type) {
     const response = await fetch('/api/users', {
       method: 'post',
       body: JSON.stringify({
         username,
         email,
-        password
+        password,
+        user_type
       }),
       headers: { 'Content-Type': 'application/json' }
     });
@@ -47,6 +58,8 @@ async function signupFormHandler(event) {
     }
   }
 }
+
+
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
