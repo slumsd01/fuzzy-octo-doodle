@@ -1,11 +1,10 @@
-<section id="current-pets">
-    <h3>Your Pets</h3>
-    {{#each pets as |pet|}}
-    {{/each}}
-</section>
-{{/if}}
+<div class="btn-wrapper">
+	<button id="add-pet-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#add-pet" aria-expanded="false" aria-controls="add-pet">
+		Add pet
+	</button>
+</div>
 
-<form class="new-pet-form">
+<form id="add-pet" class="new-pet-form collapse">
     <h3>Add New Pet</h3>
     <div>
         <label for="pet_name">Pet Name:</label>
@@ -37,4 +36,13 @@
     </div>
     <button type="submit">Add Pet</button>
 </form>
+
+<section id="current-pets">
+    {{#each pets as |pet|}}
+    <div id="pet-info">
+        {{> pet-info pet }}
+    </div>
+    {{/each}}
+</section>
+
 <script src="/javascript/add-pet.js"></script>
