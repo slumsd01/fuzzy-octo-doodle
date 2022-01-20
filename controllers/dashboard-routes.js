@@ -3,7 +3,24 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts by user for dashboard
+// get user data for dashboard
+router.get('/:id', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: { exclude: ['password'] }
+  })
+  .then(dbUserData => {
+    res.render('dashboard', { dbUserData, loggedIn: true });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+// get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
@@ -29,9 +46,13 @@ router.get('/', withAuth, (req, res) => {
         {
             model: User,
             attributes: ['username']
-        }
-        ]
-    })
+        },
+      {
+        model: User,
+        attributes: ['username', 'user_type']
+      }
+    ]
+  })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
@@ -42,6 +63,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
+// edit a post
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
