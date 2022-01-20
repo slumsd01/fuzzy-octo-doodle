@@ -1,10 +1,28 @@
-{{!-- shows all posts --}}
-{{!-- =============== --}}
+{{#if loggedIn}}
+<div id="new-post-btn-wrapper">
+	<button id="new-post-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#new-post" aria-expanded="false" aria-controls="new-post">
+		New Post
+	</button>
+</div>
+
+<form id="new-post" class="new-post-form collapse">
+    <h3>Create New Post</h3>
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div>
+        <label for="post_body">Details:</label>
+        <textarea id="post_body" name="post_body"></textarea>
+    </div>
+    <button type="submit">Post</button>
+</form>
+{{/if}}
 
 <ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
+	{{#each posts as |post|}}
+	<li>
+		{{> post-info post }}
+	</li>
+	{{/each}}
 </ol>

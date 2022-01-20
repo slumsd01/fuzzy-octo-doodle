@@ -1,0 +1,40 @@
+<section id="current-pets">
+    <h3>Your Pets</h3>
+    {{#each pets as |pet|}}
+    {{/each}}
+</section>
+{{/if}}
+
+<form class="new-pet-form">
+    <h3>Add New Pet</h3>
+    <div>
+        <label for="pet_name">Pet Name:</label>
+        <input type="text" id="pet_name" name="pet_name">
+    </div>
+    <div>
+        <label for="pet_age">Pet Age:</label>
+        <input type="text" id="pet_age" name="pet_age">
+    </div>
+    <div id="pet-sex-radio">
+        <p>Pet Sex:<br>(Select one option.)</p>
+        <div id="pex-sex-choices" class="container">
+            <input type="radio" id="female" name="pet_sex" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="female_spayed" name="pet_sex" value="female_spayed">
+            <label for="female_spayed">Female Spayed</label><br>
+            <input type="radio" id="male" name="pet_sex" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="male_neutered" name="pet_sex" value="male_neutered">
+            <label for="male_neutered">Male Neutered</label>
+        </div>
+    </div>
+    <div id="pet-type-radio">
+        <p>Pet Type<br>(Select one option.):</p>
+        <input type="radio" id="dog" name="pet_type" value="dog">
+        <label for="dog">Dog</label><br>
+        <input type="radio" id="cat" name="pet_type" value="cat">
+        <label for="cat">Cat</label>
+    </div>
+    <button type="submit">Add Pet</button>
+</form>
+<script src="/javascript/add-pet.js"></script>
