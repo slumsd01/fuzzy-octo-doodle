@@ -94,11 +94,11 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
 
-  res.render('dashboard');
+  res.render('login');
 });
 
 module.exports = router;
