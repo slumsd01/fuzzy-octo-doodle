@@ -49,7 +49,7 @@ nav a {
 }
 
 /* logout button */
-.btn-no-style {
+#logout {
     background: none;
     border: none;
     padding: 0;
@@ -62,7 +62,7 @@ nav a {
     text-transform: none;
 }
 
-.btn-no-style:hover {
+#logout:hover {
     background: none;
     color: #3486eb;
     text-decoration: underline;
@@ -83,6 +83,42 @@ a {
 
 a:hover {
     color: #3486eb;
+}
+
+/* dashboard */
+#user-info {
+    border: 1px solid black;
+    text-align: center;
+    padding: 15px;
+}
+
+.row {
+    align-items: center;
+}
+
+.badge {
+    color: white;
+}
+
+.new-post-form, #your-posts {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.new-post-form h3, #your-posts h3 {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--green);
+    color: white;
+    padding: 5px;
+}
+
+.new-post-form button {
+    margin-bottom: 15px;
+}
+
+#your-posts {
+    text-align: left;
 }
 
 /* login page */
@@ -126,7 +162,7 @@ section {
     display: inline;
 }
 
-button {
+button, .btn {
     background-color: #225ca3;
     border: 0;
     padding: 1%;
@@ -139,7 +175,7 @@ button {
     margin-top: 8px;
 }
 
-button:hover {
+button:hover, .btn:hover {
     background-color: #3486eb;
 }
 
@@ -246,4 +282,3 @@ main {
 .edit-post-form {
     margin-bottom: 5%;
 }
-

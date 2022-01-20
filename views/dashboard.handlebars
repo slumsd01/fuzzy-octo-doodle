@@ -1,30 +1,46 @@
-<section>
-  <h2>Create New Post</h2>
+<section id="user-info">
+    <div class="row justify-content-center">
+        <div class="col">
+            <img src="/images/profile-icon.png"><br>
+            <a href="#">Edit profile photo</a>
+        </div>
+        <div class="col">
+            <h3>Username</h3>
+            <span class="badge bg-warning">Owner</span>
+            <span class="badge bg-danger">Sitter</span>
+        </div>
+    </div>
+</section>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+<section id="create-forms">
+    <div id="new-post" class="container">
+        <form class="new-post-form">
+            <h3>Create New Post</h3>
+            <div>
+                <label for="post-title">Title</label>
+                <input type="text" id="post-title" name="post-title" />
+            </div>
+            <div>
+                <label for="post-url">Link</label>
+                <input id="post-url" name="post-url" />
+            </div>
+            <button type="submit" class="btn">Create</button>
+        </form>
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
+    
 </section>
 
 {{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
+<section id="your-posts">
+    <h3>Your Posts</h3>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+    </ol>
 </section>
 {{/if}}
 

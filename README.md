@@ -1,8 +1,18 @@
-# fuzzy-octo-doodle
+# sit-stay
 
-## technologies used:
-Bootstrap - https://getbootstrap.com/
+
+## helpers
+- bootstrap
+
+
+## npms
+- express
+- sequelize
+- mysql2
+- dotenv
+- bcrypt
+
 
 ## images used:
-Photo by Jamie Street on Unsplash - https://unsplash.com/photos/s9Tf1eBDFqw
-   
+- header photo: https://unsplash.com/photos/s9Tf1eBDFqw
+- icons from canva
