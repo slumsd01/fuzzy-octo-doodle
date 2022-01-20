@@ -26,9 +26,10 @@
         </header>
 
         <nav>
-            <a href="/">All Posts</a>
             {{#if loggedIn}}
             <a href="/dashboard">Dashboard</a>
+            <a href="/pets">Pets</a>
+            <a href="/">All Posts</a>
             <button id="logout">Logout</button>
             {{else}}
             <a href="/login">Login/Register</a>

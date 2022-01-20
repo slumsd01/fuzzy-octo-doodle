@@ -26,15 +26,6 @@ Post.init(
         model: 'user',
         key: 'id'
       }
-    },
-    pet_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: null,
-      references: {
-        model: 'pet',
-        key: 'id'
-      }
     }
   },
   {
