@@ -10,7 +10,6 @@ async function petFormHandler(event) {
   for (const radioButton of genderButtons) {
     if (radioButton.checked) {
       pet_sex = radioButton.value;
-      break;
     }
   }
 
@@ -18,7 +17,6 @@ async function petFormHandler(event) {
   for (const radioButton of typeButtons) {
     if (radioButton.checked) {
       pet_type = radioButton.value;
-      break;
     }
   }
 
@@ -41,6 +39,6 @@ async function petFormHandler(event) {
       alert(response.statusText)
     }
   }
-}
+};
 
-document.querySelector('.new-pet-form').addEventListener('submit', petFormHandler)
+document.querySelector('.new-pet-form').addEventListener('submit', petFormHandler);

@@ -55,7 +55,7 @@ router.post('/', withAuth, (req, res) => {
     pet_age: req.body.pet_age,
     pet_sex: req.body.pet_sex,
     pet_type: req.body.pet_type,
-    user_id: req.session.user.id
+    user_id: req.session.user_id
   })
   .then(dbPetData => res.json(dbPetData))
   .catch(err => {

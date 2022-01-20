@@ -90,10 +90,9 @@ router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
     post_body: req.body.post_body,
-    pet_id: req.body.pet_id,
     user_id: req.session.user_id
   })
-  .then(dbPostData => res.json(dbPostData))
+  .then(dbPostData => {res.json(dbPostData), console.log(dbPostData)})
   .catch(err => {
     console.log(err);
     res.status(500).json(err);

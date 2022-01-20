@@ -8,12 +8,10 @@ const Pet = require('./Pet');
 User.hasMany(Post, {
   foreignKey: 'user_id'
 });
-
 User.hasMany(Comment, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
-
 User.hasMany(Pet, {
   foreignKey: 'user_id'
 });
@@ -22,9 +20,11 @@ User.hasMany(Pet, {
 Post.belongsTo(User, {
   foreignKey: 'user_id',
 });
-
 Post.hasMany(Comment, {
   foreignKey: 'post_id'
+});
+Post.belongsTo(Pet, {
+  foreignKey: 'pet_id'
 });
 
 // Comment associations
@@ -32,7 +32,6 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
-
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
   onDelete: 'SET NULL'
