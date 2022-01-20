@@ -98,14 +98,43 @@ a:hover {
 
 .badge {
     color: white;
+    text-transform: capitalize;
 }
 
-.new-post-form, #your-posts {
+#collapse-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#current-pets {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#pet-info {
+    text-align: center;
+}
+
+#pet-profile-img {
+    height: 100px;
+}
+
+#pet-info p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#create-forms {
+    display: flex;
+}
+
+.new-post-form, .new-pet-form, #your-posts {
     border: 1px solid black;
     text-align: center;
 }
 
-.new-post-form h3, #your-posts h3 {
+.new-post-form h3, .new-pet-form h3, #your-posts h3 {
     text-align: center;
     text-transform: uppercase;
     background-color: var(--green);
@@ -113,8 +142,34 @@ a:hover {
     padding: 5px;
 }
 
-.new-post-form button {
+.new-post-form button, .new-pet-form button {
     margin-bottom: 15px;
+}
+
+textarea, input {
+    padding: .5%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border: 1px solid #3486eb;
+}
+
+textarea {
+    min-width: 75%;
+    min-height: 295px;
+}
+
+#user-type-radio p, #pet-sex-radio p, #pet-type-radio p {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#user-type-radio label, #pet-sex-radio label, #pet-type-radio label {
+    display: inline;
+    font-weight: normal;
 }
 
 #your-posts {
@@ -139,7 +194,11 @@ section {
 
 #forms {
     display: flex;
-    
+}
+
+form label {
+    display: block;
+    font-weight: bold;
 }
 
 .login-form, .signup-form {
@@ -152,14 +211,6 @@ section {
     background-color: var(--green);
     color: white;
     padding: 5px;
-}
-
-#radio p {
-    margin-bottom: 8px;
-}
-
-#radio label {
-    display: inline;
 }
 
 button, .btn {
@@ -194,28 +245,8 @@ footer a {
 /* ========================================== */
  
 /* tech news */
-textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid #3486eb;
-}
-
-textarea {
-    min-width: 40%;
-    min-height: 100px;
-}
-
 form > div {
     margin-bottom: 2%;
-}
-
-form label {
-    display: block;
 }
 
 .wrapper {

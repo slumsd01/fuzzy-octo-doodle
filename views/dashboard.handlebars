@@ -5,29 +5,103 @@
             <a href="#">Edit profile photo</a>
         </div>
         <div class="col">
-            <h3>Username</h3>
-            <span class="badge bg-warning">Owner</span>
-            <span class="badge bg-danger">Sitter</span>
+            <h3>{{username}}</h3>
+            <span class="badge bg-warning">{{user_type}}</span>
         </div>
     </div>
 </section>
 
+
+<section id="current-pets">
+    <div id="pet-info">
+        <img id="pet-profile-img" src="/images/pawprint-icon.png">
+        <p>Fluffy<br>
+            <span class="text-muted">
+                3y FS dog
+            </span>
+        </p>
+    </div>
+    <div id="pet-info">
+        <img id="pet-profile-img" src="/images/pawprint-icon.png">
+        <p>Fluffy<br>
+            <span class="text-muted">
+                3y FS dog
+            </span>
+        </p>
+    </div>
+    <div id="pet-info">
+        <img id="pet-profile-img" src="/images/pawprint-icon.png">
+        <p>Fluffy<br>
+            <span class="text-muted">
+                3y FS dog
+            </span>
+        </p>
+    </div>
+</section>
+
+<section id="collapse-btns">
+    <button id="add-pet-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#new-pet" aria-expanded="false" aria-controls="new-pet">
+        New Pet
+    </button>
+    <button id="new-post-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#new-post" aria-expanded="false" aria-controls="new-post">
+        New Post
+    </button>
+</section>
+
+
 <section id="create-forms">
-    <div id="new-post" class="container">
+    <div id="new-pet" class="container collapse">
+        <form class="new-pet-form">
+            <h3>Add New Pet</h3>
+            <div>
+                <label for="pet_name">Pet Name:</label>
+                <input type="text" id="pet_name" name="pet_name">
+            </div>
+            <div>
+                <label for="pet_age">Pet Age:</label>
+                <input type="text" id="pet_age" name="pet_age">
+            </div>
+            <div id="pet-sex-radio">
+                <p>Pet Sex:<br>(Select one option.)</p>
+                <div id="pex-sex-choices" class="container">
+                    <input type="radio" id="female" name="pet_sex" value="female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="female_spayed" name="pet_sex" value="female_spayed">
+                    <label for="female_spayed">Female Spayed</label><br>
+                    <input type="radio" id="male" name="pet_sex" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="male_neutered" name="pet_sex" value="male_neutered">
+                    <label for="male_neutered">Male Neutered</label>
+                </div>
+                
+            </div>
+            <div id="pet-type-radio">
+                <p>Pet Type<br>(Select one option.):</p>
+                <input type="radio" id="dog" name="pet_type" value="dog">
+                <label for="dog">Dog</label><br>
+                <input type="radio" id="cat" name="pet_type" value="cat">
+                <label for="cat">Cat</label>
+            </div>
+            <button type="submit" class="btn">Add Pet</button>
+        </form>
+    </div>
+
+
+    <div id="new-post" class="container collapse">
         <form class="new-post-form">
             <h3>Create New Post</h3>
             <div>
-                <label for="post-title">Title</label>
-                <input type="text" id="post-title" name="post-title" />
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
             </div>
             <div>
-                <label for="post-url">Link</label>
-                <input id="post-url" name="post-url" />
+                <label for="post_body">Details:</label>
+                <textarea id="post_body" name="post_body"></textarea>
             </div>
             <button type="submit" class="btn">Create</button>
         </form>
     </div>
-    
+
 </section>
 
 {{#if posts.length}}
