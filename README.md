@@ -25,9 +25,9 @@ Other Helpers:
 To access the program via `localhost`, a connection to the server must be made using MYSQL. After installing the necessary npms and providing the database access criteria, the connection can be made using the terminal CLI by evoking `npm start`. Alternatively, a link to the deployed online application is available below.
 
 ## Contributers
-- David Steiner
-- Ivan Thiessen
-- Sarah Lumsden
+- [David Steiner](https://github.com/spaghettimedic)
+- [Ivan Thiessen](https://github.com/Ivanicus18)
+- [Sarah Lumsden](https://github.com/slumsd01)
 
 ## Links
 - [Git Repository](https://github.com/slumsd01/fuzzy-octo-doodle)
