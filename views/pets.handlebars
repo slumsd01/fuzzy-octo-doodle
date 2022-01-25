@@ -1,0 +1,48 @@
+<div class="btn-wrapper">
+	<button id="add-pet-btn" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#add-pet" aria-expanded="false" aria-controls="add-pet">
+		Add pet
+	</button>
+</div>
+
+<form id="add-pet" class="new-pet-form collapse">
+    <h3>Add New Pet</h3>
+    <div>
+        <label for="pet_name">Pet Name:</label>
+        <input type="text" id="pet_name" name="pet_name">
+    </div>
+    <div>
+        <label for="pet_age">Pet Age:</label>
+        <input type="text" id="pet_age" name="pet_age">
+    </div>
+    <div id="gender-radio">
+        <p>Pet Sex:<br>(Select one option.)</p>
+        <div id="gender-choices" class="container">
+            <input type="radio" id="female" name="pet_sex" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="female_spayed" name="pet_sex" value="female_spayed">
+            <label for="female_spayed">Female Spayed</label><br>
+            <input type="radio" id="male" name="pet_sex" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="male_neutered" name="pet_sex" value="male_neutered">
+            <label for="male_neutered">Male Neutered</label>
+        </div>
+    </div>
+    <div id="pet-type-radio">
+        <p>Pet Type<br>(Select one option.):</p>
+        <input type="radio" id="dog" name="pet_type" value="dog">
+        <label for="dog">Dog</label><br>
+        <input type="radio" id="cat" name="pet_type" value="cat">
+        <label for="cat">Cat</label>
+    </div>
+    <button type="submit">Add Pet</button>
+</form>
+
+<section id="current-pets">
+    {{#each pets as |pet|}}
+    <div id="pet-info">
+        {{> pet-info pet }}
+    </div>
+    {{/each}}
+</section>
+
+<script src="/javascript/add-pet.js"></script>

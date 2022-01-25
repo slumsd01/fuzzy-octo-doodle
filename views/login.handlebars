@@ -1,0 +1,69 @@
+<section id="about">
+    <div>
+        <img src="/images/profile-icon.png">
+        <p class="about-p">Create a profile</p>
+    </div>
+    <div>
+        <img src="/images/pawprint-icon.png">
+        <p class="about-p">Add your pets</p>
+    </div>
+    <div>
+        <img src="/images/calendar-icon.png">
+        <p class="about-p">Find a sitter</p>
+    </div>
+    <div>
+        <img src="/images/magnifying-glass-icon.png">
+        <p class="about-p">Or register as a sitter<br>to find pets to care for</p>
+    </div>
+</section>
+
+<section id="forms">
+    <div class="container">
+        <form class="login-form">
+            <h3>Login</h3>
+            <div>
+                <label for="email-login">Email:</label>
+                <input type="text" id="email-login" />
+            </div>
+            <div>
+                <label for="password-login">Password:</label>
+                <input type="password" id="password-login" />
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container">
+        <form class="signup-form">
+            <h3>Register</h3>
+            <div>
+                <label for="username-signup">Username:</label>
+                <input type="text" id="username-signup" />
+            </div>
+            <div>
+                <label for="email-signup">Email:</label>
+                <input type="text" id="email-signup" />
+            </div>
+            <div>
+                <label for="password-signup">Password:</label>
+                <input type="password" id="password-signup" />
+            </div>
+            <div id="user-type-radio">
+                <p>I want to register as a:<br>(Select one option.)</p>
+                    <input type="radio" id="owner" name="user_type" value="owner">
+                    <label for="owner">Pet Owner</label><br>
+                    <input type="radio" id="sitter" name="user_type" value="sitter">
+                    <label for="sitter">Pet Sitter</label>
+                </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<script src="/javascript/login.js"></script>
